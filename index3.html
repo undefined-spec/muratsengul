@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Murat Usta - Kocaeli Profesyonel Fayans Ustası. Banyo, mutfak, dış cephe, şap, tadilat. Ücretsiz keşif, aynı gün hizmet.">
+        <title>Murat Usta - Kocaeli Fayans & Seramik Ustası</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Poppins',sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
+        .container{max-width:1300px;margin:auto;padding:0 20px}
+
+        header{
+            background:linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80') center/cover;
+            height:100vh;min-height:600px;display:flex;align-items:center;text-align:center;color:white
+        }
+        .header-content h1{font-size:4.8rem;margin-bottom:20px;text-shadow:0 4px 15px rgba(0,0,0,0.8)}
+        .header-content p{font-size:1.4rem;margin:10px 0}
+        .btn{display:inline-block;background:#e74c3c;color:white;padding:18px 50px;border-radius:50px;text-decoration:none;font-size:1.5rem;margin:15px;transition:.3s}
+        .btn:hover{background:#c0392b;transform:translateY(-5px)}
+        .btn-wa{background:#25D366}
+
+        section{padding:90px 0}
+        h2{font-size:3rem;text-align:center;margin-bottom:60px;color:#2c3e50}
+
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+        .service-card{background:white;padding:35px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1);text-align:center;transition:.3s}
+        .service-card:hover{transform:translateY(-10px)}
+
+        #yorumlar{background:#f1f5f9}
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:30px}
+        .review-card{background:white;padding:30px;border-radius:20px;box-shadow:0 8px 25px rgba(0,0,0,0.08)}
+        .review-header{display:flex;align-items:center;margin-bottom:15px}
+        .review-header img{width:65px;height:65px;border-radius:50%;object-fit:cover;margin-right:15px;border:3px solid #e74c3c}
+        .stars{color:#f1c40f;font-size:1.5rem;letter-spacing:4px}
+        .review-text{font-style:italic;color:#555;line-height:1.7}
+
+        .all-reviews-btn{text-align:center;margin:60px 0}
+        .all-reviews-btn button{background:#2c3e50;color:white;padding:16px 40px;border:none;border-radius:50px;font-size:1.3rem;cursor:pointer}
+        .all-reviews-btn button:hover{background:#1a2530}
+
+        #reviewFormContainer{display:none;background:white;padding:50px 20px;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,0.12);margin-top:40px}
+        .form-group{margin:15px 0}
+        .form-group label{display:block;margin-bottom:8px;font-weight:600;color:#2c3e50}
+        input,select,textarea{width:100%;padding:14px;border-radius:10px;border:1px solid #ddd;font-family:inherit}
+        #reviewForm button{background:#e74c3c;color:white;border:none;padding:16px;border-radius:50px;cursor:pointer;font-size:1.3rem;width:100%;margin-top:20px}
+
+        #iletisim{background:#2c3e50;color:white;text-align:center;padding:100px 0}
+        #iletisim h2{color:white;margin-bottom:30px}
+        #iletisim p{font-size:1.5rem;max-width:800px;margin:20px auto}
+        .phone-big{font-size:3.2rem !important;font-weight:bold;color:#e74c3c;margin:30px 0}
+        .phone-big a{color:#e74c3c;text-decoration:none}
+
+        .social-icons{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:40px}
+        .social-icons a{width:70px;height:70px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(0,0,0,0.4);transition:.3s}
+        .social-icons a:hover{transform:translateY(-10px)}
+        .social-icons img{width:38px}
+
+        footer{background:#111;color:#aaa;padding:50px 0;text-align:center}
+
+        @media (max-width:768px){
+            .header-content h1{font-size:2.8rem}
+            .btn{padding:14px 30px;font-size:1.3rem;width:90%;margin:15px auto;display:block}
+            .phone-big{font-size:2.6rem !important}
+            h2{font-size:2.4rem}
+            section{padding:70px 0}
+        }
+        @media (max-width:480px){
+            .header-content h1{font-size:2.3rem}
+            .phone-big{font-size:2.3rem !important}
+        }
+
+                /* HİZMET BAŞLIKLARI - RENKLİ VE ŞIK */
+        .service-card h3 {
+            position: relative;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            padding-left: 55px;
+        }
+        .service-icon {
+            position: relative;
+            color: white;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+            display: inline-block;
+            font-weight: 700;
+        }
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #e74c3c;
+        }
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.4);
+        }
+
+                .social-icons a[title="TikTok"] img {
+            width: 44px !important;
+        }
+        .social-icons a[title="TikTok"]:hover {
+            transform: translateY(-10px) scale(1.1);
+        }
+        
+                /* SOSYAL MEDYA İKONLARI - CANLI ANIMASYONLU */
+        .social-btn {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn img {
+            width: 38px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-12px) scale(1.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .social-btn:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Her platforma özel renkli gölge efekti */
+        .social-btn[title="WhatsApp"]:hover {
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.6);
+        }
+        .social-btn[title="Instagram"]:hover {
+            box-shadow: 0 20px 40px rgba(225, 52, 171, 0.6);
+        }
+        .social-btn[title="Facebook"]:hover {
+            box-shadow: 0 20px 40px rgba(24, 119, 242, 0.6);
+        }
+        .social-btn[title="TikTok"]:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Hafif sallanma animasyonu (sürekli değil, sadece hover'da) */
+        .social-btn:hover {
+            animation: float 1.8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-12px) scale(1.15) rotate(0deg); }
+            50% { transform: translateY(-18px) scale(1.15) rotate(5deg); }
+        }
+
+    </style>
+    </head>
+    <body>
+
+        <header>
+            <div class="container header-content">
+                <div>
+                    <h1>MURAT USTA</h1>
+                    <p>20+ Yıl Tecrübeli Fayans & Seramik Ustası</p>
+                    <p>Kocaeli • İzmit • Gebze • Derince • Gölcük • İstanbul’a
+                        da Gelirim</p>
+                    <br>
+                    <a href="tel:+905522472069" class="btn">HEMEN ARA: 0552 247
+                        20 69</a>
+                    <a href="https://wa.me/905522472069"
+                        class="btn btn-wa">WhatsApp’tan Yaz</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="hizmetler">
+            <div class="container">
+                <h2>Hizmetlerim</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3><span class="service-icon">Banyo
+                                Tadilatı</span></h3>
+                        <p>Komple yenileme, fayans, seramik, duşakabin</p>
+                    </div>
+                    <div class="service-card">
+                        <h3><span class="service-icon">Mutfak
+                                Fayansı</span></h3>
+                        <p>Tezgah arası, zemin, duvar kaplama</p>
+                    </div>
+                    <div class="service-card">
+                        <h3><span class="service-icon">Salon Zemini</span></h3>
+                        <p>Büyük ebat porselen, laminant üstü seramik</p>
+                    </div>
+                    <div class="service-card">
+                        <h3><span class="service-icon">Dış Cephe &
+                                Teras</span></h3>
+                        <p>Su geçirmez kaplama, granit, mermer</p>
+                    </div>
+                    <div class="service-card">
+                        <h3><span class="service-icon">Şap & Tesviye</span></h3>
+                        <p>Self-leveling şap, lazerli düzeltme</p>
+                    </div>
+                    <div class="service-card">
+                        <h3><span class="service-icon">Onarım</span></h3>
+                        <p>Kırık fayans değişimi, derz yenileme</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="yorumlar">
+            <div class="container">
+                <h2>Müşteri Yorumları</h2>
+                <div class="reviews-grid" id="reviewsContainer"></div>
+
+                <div class="all-reviews-btn">
+                    <button onclick="showAllReviews()">TÜM YORUMLARI OKU & YORUM
+                        BIRAK</button>
+                </div>
+
+                <div id="reviewFormContainer">
+                    <h3 style="text-align:center;margin-bottom:40px;">Tüm
+                        Yorumlar</h3>
+                    <div class="reviews-grid" id="allReviews"></div>
+
+                    <div
+                        style="max-width:600px;margin:60px auto 0;background:#f9f9f9;padding:40px;border-radius:20px">
+                        <h3 style="text-align:center;margin-bottom:25px">Siz de
+                            Yorum & Puan Bırakın</h3>
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label>Adınız Soyadınız</label>
+                                <input type="text" id="reviewerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Puanınız</label>
+                                <select id="rating" required>
+                                    <option value>Seçiniz</option>
+                                    <option value="5">5 Yıldız -
+                                        Mükemmel</option>
+                                    <option value="4">4 Yıldız - Çok
+                                        İyi</option>
+                                    <option value="3">3 Yıldız - İyi</option>
+                                </select>
+                            </div>
+
+                            <!-- YENİ MODERN FOTOĞRAF YÜKLEME ALANI -->
+                            <div class="form-group">
+                                <label>Fotoğrafınız (İsteğe Bağlı)</label>
+                                <div id="photoUploadArea"
+                                    style="border:2px dashed #ccc;border-radius:15px;padding:30px;text-align:center;cursor:pointer;transition:.3s;background:#f8f9fa;">
+                                    <input type="file" id="photoInput"
+                                        accept="image/*" style="display:none;">
+                                    <svg width="48" height="48"
+                                        viewBox="0 0 24 24" fill="none"
+                                        stroke="#999" stroke-width="1.5"
+                                        style="margin:0 auto 10px;display:block;">
+                                        <path
+                                            d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline
+                                            points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12"
+                                            y2="15"></line>
+                                    </svg>
+                                    <p
+                                        style="margin:10px 0;color:#666;"><strong>Tıklayın
+                                            veya fotoğrafı
+                                            sürükleyin</strong></p>
+                                    <small style="color:#888;">JPG, PNG • Max
+                                        5MB</small>
+                                </div>
+                                <div id="photoPreviewContainer"
+                                    style="text-align:center;margin-top:15px;display:none;">
+                                    <img id="photoPreview" src
+                                        style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:5px solid #e74c3c;box-shadow:0 5px 15px rgba(0,0,0,0.2);">
+                                    <br><button type="button" id="removePhoto"
+                                        style="margin-top:10px;background:none;border:none;color:#e74c3c;font-size:1.3rem;cursor:pointer;">✕
+                                        Fotoğrafı Kaldır</button>
+                                </div>
+                                <small
+                                    style="color:#888;display:block;margin-top:8px;">Fotoğraf
+                                    eklemezseniz otomatik avatar
+                                    kullanılır</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Yorumunuz</label>
+                                <textarea id="reviewText" rows="5"
+                                    required></textarea>
+                            </div>
+                            <button type="submit">YORUMU GÖNDER</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim">
+            <div class="container">
+                <h2>Hemen Ulaşın</h2>
+                <p style="font-size:1.6rem;max-width:800px;margin:20px auto">
+                    Kocaeli’nin her yerine aynı gün hizmet • Ücretsiz keşif •
+                    7/24 WhatsApp
+                </p>
+                <div class="phone-big">
+                    <a href="tel:+905522472069">0552 247 20 69</a>
+                </div>
+
+                <div class="social-icons">
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/905522472069" target="_blank"
+                        class="social-btn" title="WhatsApp">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                            alt="WhatsApp">
+                    </a>
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/murat.sengul5815"
+                        target="_blank" class="social-btn" title="Instagram">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                            alt="Instagram">
+                    </a>
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/MuratŞengül" target="_blank"
+                        class="social-btn" title="Facebook">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_(2019).svg"
+                            alt="Facebook">
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@06murat.41"
+                        target="_blank" class="social-btn" title="TikTok">
+                        <img src="assets/tiktok.png" alt="TikTok">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>© 2025 Murat Usta - Kocaeli Profesyonel Fayans Ustası</p>
+                <p>Telefon & WhatsApp: <strong>0552 247 20 69</strong></p>
+            </div>
+        </footer>
+
+        <script>
+    const initialReviews = [
+        {name:"Ayşe Y.", rating:5, text:"Banyomuzu sıfırdan yaptı, çok temiz iş. Kesinlikle tavsiye ederim!", date:"2 hafta önce", img:"https://randomuser.me/api/portraits/women/44.jpg"},
+        {name:"Mehmet K.", rating:5, text:"Mutfak fayansları 2 günde bitti, fiyat da çok iyiydi. Teşekkürler usta!", date:"1 ay önce", img:"https://randomuser.me/api/portraits/men/32.jpg"},
+        {name:"Fatma T.", rating:5, text:"Şap attı, lazerle ölçtü, zemin pürüzsüz oldu. Ellerine sağlık.", date:"1 ay önce", img:"https://randomuser.me/api/portraits/women/68.jpg"},
+        {name:"Ali Can", rating:5, text:"Dış cephe işini harika yaptı, 10 numara usta!", date:"2 ay önce", img:"https://randomuser.me/api/portraits/men/45.jpg"},
+        {name:"Esra H.", rating:5, text:"Acil işimiz vardı, gece yazdım sabah geldi. Helal olsun!", date:"3 hafta önce", img:"https://randomuser.me/api/portraits/women/22.jpg"},
+        {name:"Hasan Amca", rating:5, text:"Derzleri öyle düzgün yaptı ki hayran kaldık. Allah razı olsun.", date:"1 ay önce", img:"https://randomuser.me/api/portraits/men/68.jpg"}
+    ];
+
+    // KÜFÜR / ARGO FİLTRESİ (20+ yaygın kelime)
+    const badWords = [
+        "amk","amq","amına","amcık","ananı","anan","sik","sikerim","siktir","piç","orospu",
+        "göt","götü","yarrak","yarak","mk","aq","oç","orrospu","kahpe","ibne","siktirgit",
+        "anaskm","salak","gerizekalı","aptal","mal","daşşak","taşak","eşşek"
+    ];
+
+    function containsBadWord(text) {
+        const lower = text.toLowerCase().replace(/[^a-zçğıöşü0-9]/g, " ");
+        return badWords.some(word => lower.includes(word));
+    }
+
+    // FOTOĞRAF YÜKLEME ALANI (Drag & Drop + Mobil Dostu)
+    const photoUploadArea = document.getElementById("photoUploadArea");
+    const photoInput = document.getElementById("photoInput");
+    const photoPreviewContainer = document.getElementById("photoPreviewContainer");
+    const photoPreview = document.getElementById("photoPreview");
+    const removePhotoBtn = document.getElementById("removePhoto");
+
+    photoUploadArea.addEventListener("click", () => photoInput.click());
+
+    ['dragenter','dragover'].forEach(e => photoUploadArea.addEventListener(e, ev => {
+        ev.preventDefault();
+        photoUploadArea.style.borderColor = "#e74c3c";
+        photoUploadArea.style.background = "#fdf2f2";
+    }));
+    ['dragleave','drop'].forEach(e => photoUploadArea.addEventListener(e, ev => {
+        ev.preventDefault();
+        photoUploadArea.style.borderColor = "#ccc";
+        photoUploadArea.style.background = "#f8f9fa";
+    }));
+
+    photoUploadArea.addEventListener("drop", e => {
+        e.preventDefault();
+        if (e.dataTransfer.files[0]) handlePhoto(e.dataTransfer.files[0]);
+    });
+
+    photoInput.addEventListener("change", () => {
+        if (photoInput.files[0]) handlePhoto(photoInput.files[0]);
+    });
+
+    function handlePhoto(file) {
+        if (!file.type.startsWith('image/')) return alert("Lütfen sadece fotoğraf yükleyin!");
+        if (file.size > 5*1024*1024) return alert("Fotoğraf çok büyük! Max 5MB");
+
+        const reader = new FileReader();
+        reader.onload = e => {
+            photoPreview.src = e.target.result;
+            photoPreviewContainer.style.display = "block";
+            photoUploadArea.innerHTML = `<p style="color:#27ae60;"><strong>✓ Fotoğraf yüklendi</strong></p><small>Tekrar yüklemek için tıklayın</small>`;
+            photoUploadArea.style.borderColor = "#27ae60";
+        };
+        reader.readAsDataURL(file);
+    }
+
+    removePhotoBtn.addEventListener("click", () => {
+        photoInput.value = "";
+        photoPreview.src = "";
+        photoPreviewContainer.style.display = "none";
+        photoUploadArea.style.borderColor = "#ccc";
+        photoUploadArea.style.background = "#f8f9fa";
+        photoUploadArea.innerHTML = `
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" style="margin:0 auto 10px;display:block;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p style="margin:10px 0;color:#666;"><strong>Tıklayın veya fotoğrafı sürükleyin</strong></p>
+            <small style="color:#888;">JPG, PNG • Max 5MB</small>`;
+    });
+
+    // YORUM GÖNDERME + KÜFÜR FİLTRESİ
+    document.getElementById("reviewForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const now = Date.now();
+        const lastTime = localStorage.getItem("muratUstaLastCommentTime");
+        if (lastTime && now - lastTime < 10*60*1000) {
+            alert("Çok hızlısınız! Lütfen 10 dakika bekleyin.");
+            return;
+        }
+
+        const name = document.getElementById("reviewerName").value.trim();
+        const rating = parseInt(document.getElementById("rating").value);
+        const text = document.getElementById("reviewText").value.trim();
+
+        if (!name || !rating || !text) {
+            alert("Lütfen tüm zorunlu alanları doldurun.");
+            return;
+        }
+
+        if (containsBadWord(name + " " + text)) {
+            alert("Yorumunuz uygun olmayan kelimeler içeriyor. Lütfen düzgün bir dil kullanın.");
+            return;
+        }
+
+        let imgUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(name)}`;
+
+        if (photoInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = e => { imgUrl = e.target.result; saveReview(name, rating, text, imgUrl); };
+            reader.readAsDataURL(photoInput.files[0]);
+        } else {
+            saveReview(name, rating, text, imgUrl);
+        }
+
+        function saveReview(n, r, t, img) {
+            const newReview = {name: n, rating: r, text: t, date: "az önce", img: img};
+            let saved = JSON.parse(localStorage.getItem("muratUstaReviews") || "[]");
+            saved.unshift(newReview);
+            localStorage.setItem("muratUstaReviews", JSON.stringify(saved));
+            localStorage.setItem("muratUstaLastCommentTime", now);
+
+            alert("Yorumunuz için teşekkürler! Yayınlandı");
+            document.getElementById("reviewForm").reset();
+            photoPreviewContainer.style.display = "none";
+            removePhotoBtn.click();
+            showAllReviews();
+        }
+    });
+
+    function loadReviews(containerId, reviews) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = "";
+        reviews.forEach(r => {
+            container.innerHTML += `
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="${r.img}" alt="${r.name}">
+                        <div>
+                            <h4>${r.name}</h4>
+                            <small>${r.date || "az önce"}</small>
+                        </div>
+                    </div>
+                    <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</div>
+                    <p class="review-text">"${r.text}"</p>
+                </div>`;
+        });
+    }
+
+    function showAllReviews() {
+        const saved = JSON.parse(localStorage.getItem("muratUstaReviews") || "[]");
+        const all = [...initialReviews, ...saved];
+        loadReviews("allReviews", all);
+        document.getElementById("reviewFormContainer").style.display = "block";
+        document.querySelector(".all-reviews-btn").style.display = "none";
+        window.scrollTo({top: document.getElementById("reviewFormContainer").offsetTop - 100, behavior:"smooth"});
+    }
+
+    // İlk yükleme
+    loadReviews("reviewsContainer", initialReviews);
+</script>
+    </body>
+</html>
